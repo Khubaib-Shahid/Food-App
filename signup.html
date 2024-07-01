@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodLink</title>
+    <link rel="shortcut icon" href="Images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css" />
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <div class="alert alert-success" role="alert">
+      Your account has been Successfuly created!
+    </div>
+    
+    <div class="header pt-5 ps-5">
+      <a class="btn btn-primary" id="backBtn"><i class="lni lni-arrow-left"></i></a>
+    </div>
+
+    <div class="container-xxl d-flex justify-content-center">
+      <div class="signup-box">
+        <div class="signup-head">
+          <h1>Sign Up</h1>
+        </div>
+        <div class="signup-form">
+          <div class="mb-5">
+            <label for="exampleInputFirstName" class="form-label">
+              First Name
+            </label>
+            <input type="text" class="form-control" id="exampleInputFirstName" required />
+            <div id="fNameText" class="form-text mb-5">
+            </div>
+          </div>
+          <div class="mb-5">
+            <label for="exampleInputLastName" class="form-label">
+              Last Name <span class="fw-light">(Optional)</span>
+            </label>
+            <input type="text" class="form-control" id="exampleInputLastName" required />
+            <div id="lNameText" class="form-text mb-5">
+            </div>
+          </div>
+          <div class="mb-5">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+            required
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text mb-5">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+            required
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <div id="passwordText" class="form-text mb-5">
+              contain minimum 8 characters
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword2" class="form-label"
+              >Confirm Password</label
+            >
+            <input
+            required
+              type="password"
+              class="form-control"
+              id="exampleInputPassword2"
+            />
+            <div id="confirmPasswordText" class="form-text mb-5">
+            </div>
+          </div>
+          <div class="mb-5 form-check">
+            <input
+            type="checkbox"
+            class="form-check-input"
+            id="showPassword" 
+            />
+            <label class="form-check-label" for="showPassword"
+              >Show Password</label
+            >
+          </div>
+          <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
+    <!-- <script
+      src="https://kit.fontawesome.com/16f662faea.js"
+      defer
+    ></script> -->
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    <script type="module" src="signup.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

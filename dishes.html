@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodLink</title>
+    <link
+      rel="shortcut icon"
+      href="Images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css" />
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader-box" id="loader-box">
+      <div class="spinner-border text-dark" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+    >
+      <div class="offcanvas-header d-flex">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel"></h5>
+        <button
+          type="button"
+          class="btn-close align-self-start p-4"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body" id="offcanvas-body">
+        <ul class="list-group list-group">
+          <li class="list-group-item">
+            <a
+              href="index.html"
+              class="list-group-link d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto text-center">
+                <i class="fa-solid fa-house"></i> Home
+              </div>
+              <span class="badge text-bg-danger rounded-pill"></span>
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a
+              href="setting.html"
+              class="list-group-link d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto text-center">
+                <i class="fa-solid fa-gear"></i> Setting
+              </div>
+              <span class="badge text-bg-danger rounded-pill"></span>
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a
+              href="status.html"
+              class="list-group-link d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto">
+                <i class="fa-solid fa-cart-shopping"></i> Orders
+              </div>
+              <span class="badge text-bg-danger rounded-pill"></span>
+            </a>
+          </li>
+
+          <li
+            id="logout-btn"
+            class="list-group-item d-flex justify-content-between align-items-start"
+          >
+            <div class="ms-2 me-auto">
+              <i class="fa-solid fa-right-from-bracket"></i> Log out
+            </div>
+            <span class="badge text-bg-primary rounded-pill"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign Up</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body d-flex flex-column gap-3 justify-content-center align-items-center"
+          >
+            <a class="btn btn-primary w-50" href="./signup.html"
+              >Create User Account</a
+            >
+            <a class="btn btn-primary w-50" href="./businesss.html"
+              >Create Business Account</a
+            >
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid navbar-box">
+        <a class="navbar-brand" href="/"
+          ><img width="60" src="Images/foodlink-logo.png" alt="" />
+          <span>Food Link</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse bg-light"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-3 mb-2 mb-lg-0 nav-list">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./dashboard.html"
+                >Dashboard</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Dishes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./aboutus2.html">About Us</a>
+            </li>
+          </ul>
+          <div class="login-signup-box" id="login-signup-box">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Sign Up
+            </button>
+
+            <a href="login.html" class="mx-1 btn btn-primary">Log In</a>
+          </div>
+        </div>
+        <div
+          class="profile"
+          id="profile"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <div
+            class="profile-image d-flex justify-content-center flex-row"
+            id="profile-image"
+          >
+            <img id="profile-pic" src="" alt="profile-pic" />
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="dishes-header">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary mt-4"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        id="modal-button"
+      >
+        Add Dishes
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog add-dishes-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Add Dishes
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+              <div class="mb-3">
+                <label for="exampleInputDishName" class="form-label"
+                  >Dish Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputDishName"
+                  aria-describedby="dishHelp"
+                />
+                <div id="dishHelp" class="form-text"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputServing" class="form-label"
+                  >Serving</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="exampleInputServing"
+                  aria-describedby="servingHelp"
+                />
+                <div id="servingHelp" class="form-text"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputPrice" class="form-label">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="exampleInputPrice"
+                  aria-describedby="priceHelp"
+                />
+                <div id="priceHelp" class="form-text"></div>
+              </div>
+
+              <div class="dropdown mb-3">
+                <button
+                  class="btn btn-outline-light dropdown-toggle"
+                  id="category-selector"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="true"
+                >
+                  Select Category
+                </button>
+                <button
+                  class="selected-category btn btn-light"
+                  disabled
+                  id="selected-category"
+                ></button>
+                <ul class="dropdown-menu w-100 p-4 .category-menu">
+                  <li class="search-list">
+                    <input
+                      type="search"
+                      class="form-control"
+                      id="search-input"
+                      placeholder="Search"
+                    />
+                  </li>
+                  <li class="dropdown-item">Biryani</li>
+                  <li class="dropdown-item">Pulao</li>
+                  <li class="dropdown-item">Qorma</li>
+                  <li class="dropdown-item">Karahi</li>
+                  <li class="dropdown-item">Nihari</li>
+                  <li class="dropdown-item">Fried Chicken</li>
+                  <li class="dropdown-item">Ice Cream</li>
+                  <li class="dropdown-item">Pasta</li>
+                  <li class="dropdown-item">Paratha</li>
+                  <li class="dropdown-item">Roti</li>
+                  <li class="dropdown-item">Cold Drink</li>
+                  <li class="dropdown-item">Juice</li>
+                  <li class="dropdown-item">Special Drink</li>
+                  <li class="dropdown-item">Milk</li>
+                  <li class="dropdown-item">Lassi</li>
+                  <li class="dropdown-item">Salan</li>
+                  <li class="dropdown-item">Daal</li>
+                  <li class="dropdown-item">Chinese</li>
+                  <li class="dropdown-item">Vegetable Dish</li>
+                  <li class="dropdown-item">Salad</li>
+                  <li class="dropdown-item">Snack</li>
+                  <li class="dropdown-item">Cookie</li>
+                  <li class="dropdown-item">Bake Dish</li>
+                  <li class="dropdown-item">Dessert</li>
+                  <li class="dropdown-item">Sweet</li>
+                  <li class="dropdown-item">Cake</li>
+                  <li class="dropdown-item">Kebab</li>
+                  <li class="dropdown-item">Keema</li>
+                  <li class="dropdown-item">BBQ Dish</li>
+                  <li class="dropdown-item">Sea Food</li>
+                  <li class="dropdown-item">Haleem</li>
+                </ul>
+                <div id="categoryHelp" class="form-text"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="dishImage" class="form-label">Upload Picture</label>
+                <input
+                  class="form-control dishImage"
+                  type="file"
+                  id="dishImage"
+                />
+                <div id="dishImageHelp" class="form-text"></div>
+              </div>
+
+              <div>
+                <img
+                  class="dish-uploaded-picture"
+                  id="dish-uploaded-picture"
+                  width="80"
+                  src=""
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button id="add-dish" type="button" class="btn btn-primary">
+                Add Dish
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dishes-loader-box">
+    <div class="dishes-loader">
+      <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+    <div class="no-dishes d-none">
+      <div class="exclaim">
+        <h1>!</h1>
+      </div>
+      <h2>No Dishes Yet</h2>
+    </div>
+
+    <div class="container-xxxl main">
+      <div class="owner-dishes">
+        <div class="owner-dishes-list">
+          <ul class="list-group" id="owner-dishes-have">
+            <li class="list-group-item">
+              <div class="owner-dishes-header">
+                <div class="Hitem"><h5>No</h5></div>
+                <div class="Hitem"><h5>Image</h5></div>
+                <div class="Hitem"><h5>Name</h5></div>
+                <div class="Hitem"><h5>Serve</h5></div>
+                <div class="Hitem"><h5>Price</h5></div>
+                <div class="Hitem"><h5>Category</h5></div>
+                <button class="btn"></button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="footer">
+      <div class="food-link-logo d-flex gap-2">
+        <div>
+          <img src="Images/foodlink-logo.png" alt="food-link-logo" />
+        </div>
+        <h4 class="pt-1 fw-bolder">Food Link</h4>
+      </div>
+      <div class="social-media">
+        <div class="social-media-head mb-4"><h4>Follow us</h4></div>
+        <div class="social-logo">
+          <a href="#"
+            ><h2 class="text-primary"><i class="fab fa-facebook"></i></h2>
+            <p>Facebook</p></a
+          >
+        </div>
+        <div class="social-logo">
+          <a href="#"
+            ><h2 class="text-danger"><i class="fab fa-youtube"></i></h2>
+            <p>youtube</p></a
+          >
+        </div>
+        <div class="social-logo">
+          <a href="#"
+            ><h2 class="text-dark"><i class="fab fa-x-twitter"></i></h2>
+            <p>Facebook</p></a
+          >
+        </div>
+        <div class="social-logo">
+          <a href="#"
+            ><h2 class="text-insta"><i class="fab fa-instagram"></i></h2>
+            <p>Instagram</p></a
+          >
+        </div>
+        <div class="social-logo">
+          <a href="#"
+            ><h2 class="text-tiktok"><i class="fab fa-tiktok"></i></h2>
+            <p>Tiktok</p></a
+          >
+        </div>
+      </div>
+      <div class="contact">
+        <h4 class="mb-4">Contact Us</h4>
+        <p>Foodlink@gmail.com</p>
+        <p>FoodlinkBusiness@gmail.com</p>
+        <p>+923132307240</p>
+        <p>+923122606073</p>
+        <p>+923343465831</p>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/16f662faea.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    <script src="app.js" type="module"></script>
+    <script type="module" src="dishes.js"></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodLink</title>
+    <link rel="shortcut icon" href="Images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css" />
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <div class="header pt-5 ps-5">
+      <a class="btn btn-primary" id="backBtn"><i class="lni lni-arrow-left"></i></a>
+    </div>
+
+    <div class="container-xxl d-flex justify-content-center">
+      <div class="login-box">
+        <div class="login-head">
+          <h1>Log In</h1>
+        </div>
+        <div class="login-form">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text mb-5">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="showPassword"
+            />
+            <label class="form-check-label" for="showPassword"
+              >Show Password</label
+            >
+          </div>
+          <button id="loginBtn" type="submit" class="btn btn-primary my-3">Submit</button>
+        </div>
+
+        <!-- <div class="others-login">
+          <div class="google-login" id="google-btn">
+            <img src="Images/search.png" width="30px" height="30px" alt="google-icon" />
+            <h4>Sign in with Google</h4>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.esm.js"></script>
+    <script src="app.js" type="module"></script>
+    <script type="module" src="login.js"></script>
+  </body>
+</html>

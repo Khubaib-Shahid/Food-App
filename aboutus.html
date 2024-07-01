@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodLink</title>
+    <link
+      rel="shortcut icon"
+      href="Images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css" />
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader-box" id="loader-box">
+      <div class="spinner-border text-dark" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+    >
+      <div class="offcanvas-header d-flex">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel"></h5>
+        <button
+          type="button"
+          class="btn-close align-self-start p-4"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body" id="offcanvas-body">
+        <ul class="list-group list-group">
+          <li class="list-group-item business-portal">
+            <a
+              href="dashboard.html"
+              class="list-group-link d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto text-center">
+                <i class="fa-solid fa-briefcase"></i> Business Portal
+              </div>
+              <span class="badge text-bg-danger rounded-pill"></span>
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a
+              href="setting.html"
+              class="list-group-link d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto text-center">
+                <i class="fa-solid fa-gear"></i> Setting
+              </div>
+              <span class="badge text-bg-danger rounded-pill"></span>
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a
+              href="status.html"
+              class="list-group-link d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto">
+                <i class="fa-solid fa-cart-shopping"></i> Orders
+              </div>
+              <span class="badge text-bg-danger rounded-pill"></span>
+            </a>
+          </li>
+
+          <li
+            id="logout-btn"
+            class="list-group-item d-flex justify-content-between align-items-start"
+          >
+            <div class="ms-2 me-auto">
+              <i class="fa-solid fa-right-from-bracket"></i> Log out
+            </div>
+            <span class="badge text-bg-primary rounded-pill"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign Up</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body d-flex flex-column gap-3 justify-content-center align-items-center"
+          >
+            <a class="btn btn-primary w-50" href="./signup.html"
+              >Create User Account</a
+            >
+            <a class="btn btn-primary w-50" href="./business.html"
+              >Create Business Account</a
+            >
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid navbar-box">
+        <a class="navbar-brand" href="/"
+          ><img width="60" src="Images/foodlink-logo.png" alt="" />
+          <span>Food Link</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse bg-light"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-3 mb-2 mb-lg-0 nav-list">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./Restaurants.html">Food</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">About Us</a>
+            </li>
+          </ul>
+          <div class="login-signup-box" id="login-signup-box">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Sign Up
+            </button>
+
+            <a href="login.html" class="mx-1 btn btn-primary">Log In</a>
+          </div>
+        </div>
+        <div
+            class="profile"
+            id="profile"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+          >
+            <div
+              class="profile-image d-flex justify-content-center flex-row"
+              id="profile-image"
+            >
+              <img
+                id="profile-pic"
+                src=""
+                alt="profile-pic"
+              />
+            </div>
+          </div>
+      </div>
+    </nav>
+
+    <div class="container-xxxl about-page">
+      <div class="section1">
+        <h1>About Us</h1>
+        <h3>Welcome to Food Link!</h3>
+        <p>
+          At Food Link, we believe that food is more than just sustenance – it's
+          a universal language that brings people together, transcending borders
+          and cultures. Our mission is to connect food enthusiasts from around
+          the world, offering a platform where they can discover, share, and
+          celebrate the culinary arts.
+        </p>
+        <h3>Our Story</h3>
+        <p>
+          Food Link was founded with a simple idea: to create a community where
+          food lovers can connect, explore new recipes, and share their passion
+          for cooking. Our journey began in [Year Founded] with a small team of
+          culinary aficionados who wanted to build a space where everyone, from
+          amateur cooks to professional chefs, can find inspiration and support.
+        </p>
+        <h3>What We Offer</h3>
+        <h4>Divers recipes</h4>
+        <p>
+          Explore our vast collection of recipes that cater to all tastes and
+          dietary needs. Whether you’re looking for quick weeknight dinners,
+          indulgent desserts, or health-conscious meals, Food Link has something
+          for everyone.
+        </p>
+        <h4>Cooking Tips & Techniques</h4>
+        <p>
+          Our platform is more than just recipes. We provide valuable cooking
+          tips and techniques to help you improve your skills and make your
+          kitchen adventures more enjoyable and successful.
+        </p>
+        <h4>Community Connection</h4>
+        <p>
+          Join our vibrant community of food lovers. Share your own recipes, ask
+          for advice, and connect with others who share your passion for
+          cooking. Food Link is a place where friendships are forged over a
+          shared love of food.
+        </p>
+        <h4>Foodie Events & Workshops</h4>
+        <p>
+          Stay tuned for our exciting events and workshops where you can learn
+          from the best in the industry. From cooking classes to culinary tours,
+          Food Link brings you closer to the food experiences you crave.
+        </p>
+        <h3>Our Values</h3>
+        <h4>Quality</h4>
+        <p>
+          We are committed to providing high-quality content and resources. Our
+          recipes are tested and curated to ensure they meet our high standards.
+        </p>
+        <h4>Inclusivity</h4>
+        <p>
+          Food Link is for everyone. We celebrate diversity and strive to make
+          our platform welcoming and inclusive for all food enthusiasts,
+          regardless of their background or level of experience.
+        </p>
+        <h4>Passion</h4>
+        <p>
+          We are passionate about food and dedicated to fostering a love for
+          cooking in our community. Our team works tirelessly to bring you the
+          best in culinary content and experiences.
+        </p>
+        <h4>Innovation</h4>
+        <p>
+          We are always looking for new ways to enhance your culinary journey.
+          From the latest food trends to cutting-edge cooking techniques, Food
+          Link keeps you ahead of the curve.
+        </p>
+        <h3>Join Us</h3>
+        <p>
+          Whether you’re a seasoned chef or just starting your culinary journey,
+          Food Link is here to support and inspire you. Join us today and become
+          a part of a global community that celebrates the joy of cooking and
+          the power of food to bring people together.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="food-link-logo d-flex gap-2">
+        <div>
+          <img src="Images/foodlink-logo.png" alt="food-link-logo" />
+        </div>
+        <h4 class="pt-1 fw-bolder">Food Link</h4>
+      </div>
+      <div class="social-media">
+        <div class="social-media-head mb-4"><h4>Follow us</h4></div>
+        <div class="social-box">
+          <div class="social-logo">
+            <a href="#"
+              ><h2 class="text-primary"><i class="fab fa-facebook"></i></h2>
+              <p>Facebook</p></a
+            >
+          </div>
+          <div class="social-logo">
+            <a href="#"
+              ><h2 class="text-danger"><i class="fab fa-youtube"></i></h2>
+              <p>Youtube</p>
+              </a
+            >
+          </div>
+          <div class="social-logo">
+            <a href="#"
+              ><h2 class="text-dark"><i class="fab fa-x-twitter"></i></h2>
+              <p>Twitter</p></a
+            >
+          </div>
+          <div class="social-logo">
+            <a href="#"
+              ><h2 class="text-insta"><i class="fab fa-instagram"></i></h2>
+              <p>Instagram</p></a
+            >
+          </div>
+          <div class="social-logo">
+            <a href="#"
+              ><h2 class="text-tiktok"><i class="fab fa-tiktok"></i></h2>
+              <p>Tiktok</p></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="contact">
+        <h4 class="mb-4">Contact Us</h4>
+        <div class="contact-box">
+        <p>Foodlink@gmail.com</p>
+        <p>FoodlinkBusiness@gmail.com</p>
+        <p>+923132307240</p>
+        <p>+923122606073</p>
+        <p>+923343465831</p>
+      </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/16f662faea.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

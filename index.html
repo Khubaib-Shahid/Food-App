@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodLink</title>
+    <link
+      rel="shortcut icon"
+      href="Images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css" />
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader-box" id="loader-box">
+      <div class="spinner-border text-dark" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+    >
+      <div class="offcanvas-header d-flex">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel"></h5>
+        <button
+          type="button"
+          class="btn-close align-self-start p-4"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body" id="offcanvas-body">
+        <ul class="list-group list-group">
+          <li class="list-group-item business-portal">
+            <a
+              href="dashboard.html"
+              class="list-group-link d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto text-center">
+                <i class="fa-solid fa-briefcase"></i> Business Portal
+              </div>
+              <span class="badge text-bg-danger rounded-pill"></span>
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a
+              href="setting.html"
+              class="list-group-link d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto text-center">
+                <i class="fa-solid fa-gear"></i> Setting
+              </div>
+              <span class="badge text-bg-danger rounded-pill"></span>
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a
+              href="status.html"
+              class="list-group-link d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto">
+                <i class="fa-solid fa-cart-shopping"></i> Orders
+              </div>
+              <span class="badge text-bg-danger rounded-pill"></span>
+            </a>
+          </li>
+
+          <li
+            id="logout-btn"
+            class="list-group-item d-flex justify-content-between align-items-start"
+          >
+            <div class="ms-2 me-auto">
+              <i class="fa-solid fa-right-from-bracket"></i> Log out
+            </div>
+            <span class="badge text-bg-primary rounded-pill"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign Up</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body modal-signup d-flex flex-column gap-3 justify-content-center align-items-center"
+          >
+            <a class="btn btn-primary w-50" href="./signup.html"
+              >Create User Account</a
+            >
+            <a class="btn btn-primary w-50" href="./business.html"
+              >Create Business Account</a
+            >
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid navbar-box">
+        <a class="navbar-brand" href="/"
+          ><img width="60" src="Images/foodlink-logo.png" alt="" />
+          <span>Food Link</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse bg-light"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-3 mb-2 mb-lg-0 nav-list">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./Restaurants.html">Food</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./aboutus.html">About Us</a>
+            </li>
+          </ul>
+          <div class="login-signup-box" id="login-signup-box">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Sign Up
+            </button>
+
+            <a href="login.html" class="mx-1 btn btn-primary">Log In</a>
+          </div>
+        </div>
+        <div
+            class="profile"
+            id="profile"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+          >
+            <div
+              class="profile-image d-flex justify-content-center flex-row"
+              id="profile-image"
+            >
+              <img
+                id="profile-pic"
+                src=""
+                alt="profile-pic"
+              />
+            </div>
+          </div>
+      </div>
+    </nav>
+
+    <div class="main">
+      <div class="poster">
+        <div class="poster-header">
+          <div class="poster-heading">
+            <h1>Link your food to your Heart</h1>
+          </div>
+          <div class="poster-des">
+            <p>
+              Offering a freebie, a raffle prize, or an exclusive perk is a
+              great way to entice people to register for your promotion. Offer
+              something that can be perceived as valuable to convince people to
+              join.
+            </p>
+          </div>
+        </div>
+        <div class="poster-button">
+          <button class="btn btn-primary me-2">Order Now</button>
+          <button class="btn btn-outline-primary ms-2">
+            Connect with <i class="fab fa-facebook"></i>
+          </button>
+          <div class="poster-disclaimer">
+            <strong
+              ><i
+                >Disclaimer: Terms and conditions may apply. All government
+                taxes associated with this prize are solely the responsibility
+                of the winner.</i
+              ></strong
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="city-section">
+        <div class="city-heading">
+          <h1>We are spreading all over Pakistan</h1>
+        </div>
+        <div class="cities">
+          <div class="city">
+            <img src="Images/karachi.jpeg" alt="city-image" />
+            <h1>Karachi</h1>
+          </div>
+          <div class="city">
+            <img src="Images/islamabad.jpeg" alt="city-image" />
+            <h1>Islamabad</h1>
+          </div>
+          <div class="city">
+            <img src="Images/quetta.jpeg" alt="city-image" />
+            <h1>Quetta</h1>
+          </div>
+          <div class="city">
+            <img src="Images/lahore.jpeg" alt="city-image" />
+            <h1>Lahore</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="offer">
+        <div class="blur"></div>
+        <div class="offer-box">
+          <div class="offer-heading">
+            <h1>Check our best Restaurants</h1>
+          </div>
+          <div class="offer-text">
+            <p>
+              Explore a wide variety of restaurants and cuisines on Food Link.
+              From local favorites to top-rated spots, we have something for
+              every craving. Enjoy exclusive deals and fast delivery! <br />
+              Find your next meal with ease. Browse menus, read reviews, and
+              order your favorite dishes from the comfort of your home. Download
+              the Food Link app today and start exploring!" <br />
+              Get delicious food delivered to your door in no time. Whether
+              you're in the mood for pizza, sushi, or a gourmet burger, Food
+              Link has you covered. Sign up now and enjoy your first order with
+              a special discount!
+            </p>
+          </div>
+
+          <div class="offer-btn">
+            <button class="btn btn-primary">
+              Go <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="business mt-5">
+        <div class="business-img"></div>
+        <div class="business-des">
+          <div class="business-head">
+            <h1>
+              Expand your business reach <br />
+              with Food Link
+            </h1>
+          </div>
+          <div class="business-text">
+            <p>
+              Looking to increase your restaurant’s sales and reach more
+              customers? Join Food Link – <br />
+              the food delivery platform designed to help your business thrive.
+              With our low commission rates, extensive marketing support, and
+              reliable delivery service, <br />
+              you can focus on what you do best: making great food. Sign up
+              today and start growing your business!
+            </p>
+          </div>
+          <div class="business-btn">
+            <a class="btn btn-primary" href="./business.html">Get Started</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-to-use">
+        <div class="use-head">
+          <h1>How to use</h1>
+        </div>
+        <div class="intro">
+          <h3>Introduction</h3>
+          <p>
+            Welcome to Food Link! Here’s a quick guide to help you navigate and
+            make the most out of our platform. Whether you’re ordering food or
+            managing your restaurant, we’ve got you covered.
+          </p>
+        </div>
+        <div class="step">
+          <h3>Browse Restaurants</h3>
+          <p>
+            Desktop: Use the search bar at the top of the homepage or browse by
+            cuisine or location. <br />
+            App: Tap the “Explore” icon and filter restaurants by type, rating,
+            or proximity
+          </p>
+        </div>
+        <div class="step">
+          <h3>View Menus and Reviews</h3>
+          <p>
+            Desktop/App: Click on a restaurant to see its full menu, read
+            customer reviews, and check ratings.
+          </p>
+        </div>
+        <div class="step">
+          <h3>Place Your Order</h3>
+          <p>
+            Desktop: Select your items, customize them if needed, and click “Add
+            to Cart.” <br />
+            App: Tap on your desired items, customize, and then tap “Add to
+            Cart.”
+          </p>
+        </div>
+        <div class="step">
+          <h3>Checkout</h3>
+          <p>
+            Desktop/App: Go to your cart, review your order, and click “Proceed
+            to Checkout.” Enter your delivery details, choose a payment method,
+            and confirm your order.
+          </p>
+        </div>
+        <div class="step">
+          <h3>Track Your Order</h3>
+          <p>
+            Desktop/App: After placing your order, use the “Track Order” feature
+            to see real-time updates on your delivery status.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="food-link-logo d-flex gap-2">
+          <div>
+            <img src="Images/foodlink-logo.png" alt="food-link-logo" />
+          </div>
+          <h4 class="pt-1 fw-bolder">Food Link</h4>
+        </div>
+        <div class="social-media">
+          <div class="social-media-head mb-4"><h4>Follow us</h4></div>
+          <div class="social-box">
+            <div class="social-logo">
+              <a href="#"
+                ><h2 class="text-primary"><i class="fab fa-facebook"></i></h2>
+                <p>Facebook</p></a
+              >
+            </div>
+            <div class="social-logo">
+              <a href="#"
+                ><h2 class="text-danger"><i class="fab fa-youtube"></i></h2>
+                <p>Youtube</p>
+                </a
+              >
+            </div>
+            <div class="social-logo">
+              <a href="#"
+                ><h2 class="text-dark"><i class="fab fa-x-twitter"></i></h2>
+                <p>Twitter</p></a
+              >
+            </div>
+            <div class="social-logo">
+              <a href="#"
+                ><h2 class="text-insta"><i class="fab fa-instagram"></i></h2>
+                <p>Instagram</p></a
+              >
+            </div>
+            <div class="social-logo">
+              <a href="#"
+                ><h2 class="text-tiktok"><i class="fab fa-tiktok"></i></h2>
+                <p>Tiktok</p></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="contact">
+          <h4 class="mb-4">Contact Us</h4>
+          <div class="contact-box">
+          <p>Foodlink@gmail.com</p>
+          <p>FoodlinkBusiness@gmail.com</p>
+          <p>+923132307240</p>
+          <p>+923122606073</p>
+          <p>+923343465831</p>
+        </div>
+        </div>
+      </div>
+
+    <script
+      src="https://kit.fontawesome.com/16f662faea.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
